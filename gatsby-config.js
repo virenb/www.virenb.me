@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 module.exports = {
   siteMetadata: {
     title: 'Viren Bhagat',
@@ -19,6 +21,13 @@ module.exports = {
       options: {
         path: `${__dirname}/src/projects`,
         name: 'projects',
+      },
+    },
+    {
+      resolve: 'gatsby-source-contentful',
+      options: {
+        spaceId: process.env.spaceId,
+        accessToken: process.env.accessToken,
       },
     },
   ],
