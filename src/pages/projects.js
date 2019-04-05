@@ -3,34 +3,36 @@ import { Link, graphql } from 'gatsby';
 
 import Layout from '../components/layout';
 
-const SecondPage = ({ data }) => {
-  console.log(data);
-  return (
-  <Layout>
-  <h3>Projects</h3>
-  <div>
-  {data.allMarkdownRemark.edges.map(({ node }) => (
-  <div>
-  <h3 style={{ fontSize: '1.1rem', marginBottom: '5px' }}>{node.frontmatter.title}</h3>
-  <a href={node.frontmatter.url} target="_blank">
-							Live
-						
-</a>
-  <br />
-  <a href={node.frontmatter.repo} target="_blank">
-							Repository
-						
-</a>
-  <p>{node.frontmatter.description}</p>
-					</div>
-				))}
+const ProjectsPage = ({ data }) => {
+	console.log(data);
+	return (
+		<Layout>
+			<h3>Projects</h3>
+			<div>
+				{data.allMarkdownRemark.edges.map(({ node }) => {
+					return node.frontmatter.description !== null ? (
+						<div>
+							<h3 style={{ fontSize: '1.1rem', marginBottom: '5px' }}>{node.frontmatter.title}</h3>
+							<a href={node.frontmatter.url} target="_blank">
+								Live
+							</a>
+							<br />
+							<a href={node.frontmatter.repo} target="_blank">
+								Repository
+							</a>
+							<p>{node.frontmatter.description}</p>
+						</div>
+					) : (
+						<div />
+					);
+				})}
 			</div>
-  <Link to="/">Home</Link>
+			<Link to="/">Home</Link>
 		</Layout>
-  );
+	);
 };
 
-export default SecondPage;
+export default ProjectsPage;
 
 export const query = graphql`
 	query {
