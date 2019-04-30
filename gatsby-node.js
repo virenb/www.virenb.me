@@ -1,11 +1,11 @@
-const path = require(`path`)
+const path = require(`path`);
 
 exports.createPages = ({ graphql, actions }) => {
-  const { createPage } = actions
-  const blogPostTemplate = path.resolve(`src/pages/blog-post.js`)
-  return graphql(`
+	const { createPage } = actions;
+	const blogPostTemplate = path.resolve(`src/pages/blog-post.js`);
+	return graphql(`
     {
-      allContentfulBlog(limit: 100) {
+      allContentfulBlog {
         edges {
           node {
             id
@@ -14,19 +14,20 @@ exports.createPages = ({ graphql, actions }) => {
         }
       }
     }
-  `).then(result => {
-    if (result.errors) {
-      throw result.errors
-    }
+  `).then((result) => {
+		if (result.errors) {
+			throw result.errors;
+		}
 
-    result.data.allContentfulBlog.edges.forEach(edge => {
-      createPage({
-        path: `${edge.node.fields.slug}`,
-        component: blogPostTemplate,
-        context: {
-          slug: edge.node.slug,
-        },
-      })
-    })
-  })
-}
+		result.data.allContentfulBlog.edges.forEach((edge) => {
+			createPage({
+				path: edge.node.slug,
+				component: blogPostTemplate,
+				context: {
+					slug: edge.node.slug
+				}
+			});
+		});
+		return;
+	});
+};

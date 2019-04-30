@@ -22,7 +22,7 @@ const IndexPage = () => (
 			</a>.
 		</p>
 		<p>
-			Update: I've created a <Link to="/blogs">blog</Link>.
+			2019 Update: I've created a <Link to="/blogs">blog</Link>.
 		</p>
 	</Layout>
 );
