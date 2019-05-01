@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Link } from 'gatsby';
+import Layout from '../components/layout';
 import PropTypes from 'prop-types';
 
 class BlogPost extends Component {
@@ -11,11 +13,14 @@ class BlogPost extends Component {
 			body
 		} = this.props.data.contentfulBlog;
 		return (
-			<div>
-				<h1>{title}</h1>
-				<p>{createdAt}</p>
-				<div dangerouslySetInnerHTML={{ __html: body.childMarkdownRemark.html }} />
-			</div>
+			<Layout>
+				<div>
+					<h1>{title}</h1>
+					<p>{createdAt}</p>
+					<div dangerouslySetInnerHTML={{ __html: body.childMarkdownRemark.html }} />
+				</div>
+				<Link to="/blogs">Back to Blogs</Link>
+			</Layout>
 		);
 	}
 }
