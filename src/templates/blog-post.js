@@ -1,24 +1,16 @@
 import React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
+import { graphql } from 'gatsby';
 
-const BlogPost = () => {
-	const data = useStaticQuery(query);
-	return (
-		<div>
-			<h1>{data.contentfulBlog.title}</h1>
-		</div>
-	);
+const BlogPost = ({ data }) => {
+	const blog = data.contentfulBlog;
+	return <div>{blog.title}</div>;
 };
 
-const query = graphql`
-	query MyQuery($slug: String!) {
+export const query = graphql`
+	query BlogQuery($slug: String!) {
 		contentfulBlog(slug: { eq: $slug }) {
-			slug
 			title
-			createdAt
-			childContentfulBlogBodyTextNode {
-				body
-			}
+			slug
 		}
 	}
 `;

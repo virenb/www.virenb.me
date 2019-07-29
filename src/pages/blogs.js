@@ -2,7 +2,18 @@ import React from 'react';
 import { useStaticQuery, graphql, Link } from 'gatsby';
 
 const Blogs = () => {
-	const data = useStaticQuery(query);
+	const data = useStaticQuery(graphql`
+		query BlogsQuery {
+			allContentfulBlog {
+				edges {
+					node {
+						title
+						slug
+					}
+				}
+			}
+		}
+	`);
 	return (
 		<div>
 			<ul>
@@ -11,18 +22,5 @@ const Blogs = () => {
 		</div>
 	);
 };
-
-const query = graphql`
-	query BlogsQuery {
-		allContentfulBlog {
-			edges {
-				node {
-					title
-					slug
-				}
-			}
-		}
-	}
-`;
 
 export default Blogs;
