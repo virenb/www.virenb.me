@@ -1,22 +1,27 @@
 import React from 'react';
-import { Link } from 'gatsby';
 
 import Layout from '../components/layout';
-import Image from '../components/image';
 import SEO from '../components/seo';
 import Blogs from './blogs';
 
 const IndexPage = () => (
 	<Layout>
-		<SEO title="Home" />
-		<h1>Hi people</h1>
-		<p>Welcome to your new Gatsby site.</p>
-		<p>Now go build something great.</p>
-		<div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-			<Image />
-		</div>
+		<SEO title="hello" />
+		<h3>Hi all, I am Viren Bhagat.</h3>
+		<main>
+			<p>
+				Welcome to my website. I'm a full stack developer. Almost all my work is on my{' '}
+				<a href="https://github.com/virenb" target="_blank">
+					GitHub
+				</a>
+				. Here is my{' '}
+				<a href="https://twitter.com/virengb" target="_blank">
+					Twitter
+				</a>{' '}
+				. I started a blog, check out the posts below.
+			</p>
+		</main>
 		<Blogs />
-		<Link to="/page-2/">Go to page 2</Link>
 	</Layout>
 );
 
