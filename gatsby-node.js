@@ -9,8 +9,9 @@ exports.createPages = ({ graphql, actions }) => {
         allContentfulBlog {
           edges {
             node {
-              slug
               title
+              slug
+              createdAt
             }
           }
         }
@@ -20,6 +21,7 @@ exports.createPages = ({ graphql, actions }) => {
 		if (result.errors) {
 			throw result.errors;
 		}
+
 		result.data.allContentfulBlog.edges.forEach((edge) => {
 			createPage({
 				path: `${edge.node.slug}`,
