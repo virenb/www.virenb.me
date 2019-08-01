@@ -1,1 +1,1 @@
-Building a portfolio website + blog with GatsbyJS
+Portfolio / website / blog built with Gatsby.js and Contentful CMS. Deployed via Netlify.
