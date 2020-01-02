@@ -20,15 +20,21 @@ const Layout = ({ children }) => {
       <Header siteTitle={data.site.siteMetadata.title} />
       <div
         style={{
-          margin: `0 auto`,
-          width: 650,
-          maxWidth: `90vw`,
-          padding: `0px 1.0875rem 1.45rem`,
-          paddingTop: 0,
+          display: `flex`,
+          alignItems: `center`,
+          minHeight: `75vh`,
+          flexDirection: `column`
         }}
       >
-        <main>{children}</main>
-        <footer>
+        <main
+          style={{flex: 1}}
+        >{children}</main>
+        <footer
+          style={{
+            color: `blue`,
+            flexShrink: `0`
+          }}
+            >
           © {new Date().getFullYear()}, Built with
           {` `}
           <a href="https://www.gatsbyjs.org">Gatsby</a>

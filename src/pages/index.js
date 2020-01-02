@@ -1,24 +1,41 @@
 import React from 'react';
+import styled from 'styled-components';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 
+const Button = styled.button`
+  background: transparent;
+  border-radius: 3px;
+  border: 2px solid cornflowerblue;
+  color: cornflowerblue;
+  margin: 0.5em 1em;
+  padding: 0.25em 1em;
+`;
+
+const InverseButton = styled.button`
+  background: cornflowerblue;
+  border-radius: 3px;
+  border: 2px solid cornflowerblue;
+	margin: 0.5em 1em;
+	color: white;
+  padding: 0.25em 1em;
+`;
+
 const IndexPage = () => (
 	<Layout>
 		<SEO title="hello" />
-		<h3>Hi all, I am Viren Bhagat.</h3>
-		<main>
-			<p>
-				Welcome to my website. I'm a full stack developer. Almost all my work is on my{' '}
-				<a href="https://github.com/virenb" target="_blank">
-					GitHub
-				</a>
-				. Here is my{' '}
-				<a href="https://twitter.com/virengb" target="_blank">
-					Twitter
-				</a>{' '}
-				.
-			</p>
+		<main
+			style={{
+				display: 'flex',
+				flexDirection: 'column'
+			}}
+		>
+			<InverseButton>Projects</InverseButton>
+			<Button>GitHub</Button>
+			<Button>Twitter</Button>
+			<Button>Blog</Button>
+			<Button>LinkedIn</Button>
 		</main>
 	</Layout>
 );
