@@ -29,12 +29,7 @@ const Layout = ({ children }) => {
         <main
           style={{flex: 1}}
         >{children}</main>
-        <footer
-          style={{
-            color: `blue`,
-            flexShrink: `0`
-          }}
-            >
+        <footer>
           © {new Date().getFullYear()}, Built with
           {` `}
           <a href="https://www.gatsbyjs.org">Gatsby</a>
