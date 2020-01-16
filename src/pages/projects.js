@@ -5,18 +5,29 @@ import Layout from '../components/layout';
 import SEO from '../components/seo';
 
 const Projects = ({ data }) => {
-  console.log(data)
   return (
     <Layout>
       <SEO title="projects" />
+      <main
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          textAlign: 'center'
+        }}
+      >
       <h1>Projects</h1>
       <ul>
         {data.allMarkdownRemark.edges.map(({ node }, index) => (
-          <li key={index}>
+          <li
+            style={{
+              listStyleType: 'none'
+            }}
+            key={index}>
             <a href={node.frontmatter.path}>{node.frontmatter.title}</a>
           </li>
         ))}
-      </ul>
+        </ul>
+      </main>
     </Layout>
   )
 }
