@@ -6,17 +6,21 @@ import Layout from '../components/layout';
 export default function Template({
   data, // this prop will be injected by the GraphQL query below.
 }) {
-  const { markdownRemark } = data // data.markdownRemark holds your post data
-  const { frontmatter, html } = markdownRemark
+  const { markdownRemark } = data;
+  const { frontmatter, html } = markdownRemark;
   return (
     <Layout>
       <main
         style={{
           display: 'flex',
-          flexDirection: 'column'
-        }}
-      >
-      <h3>{frontmatter.title}</h3>
+          maxWidth: '50%',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          margin: '0 auto'
+          }}
+        >
+        <h3>{frontmatter.title}</h3>
         <div
           dangerouslySetInnerHTML={{ __html: html }}
         />
