@@ -1,11 +1,9 @@
-require('dotenv').config();
-
 module.exports = {
 	siteMetadata: {
 		title: `virenb`,
 		description: `Website and blog for Viren Bhagat`,
 		author: `Viren Bhagat`,
-		url: `https://virenb.me`,
+		url: `https://virenb.cc`,
 		twitterUsername: `@virengb`
 	},
 	plugins: [
@@ -25,22 +23,12 @@ module.exports = {
 			}
 		},
 		{
-			resolve: `gatsby-source-contentful`,
+			resolve: `gatsby-source-filesystem`,
 			options: {
-				spaceId: process.env.spaceId,
-				accessToken: process.env.accessToken,
-				downloadLocal: true
-			}
+				path: `${__dirname}/src/project-pages`,
+				name: `project-pages`,
+			},
 		},
-		{
-			resolve: `gatsby-transformer-remark`,
-			options: {
-				commonmark: true,
-				footnotes: true,
-				pedantic: true,
-				gfm: true,
-				plugins: []
-			}
-		}
+	`gatsby-transformer-remark`,
 	]
 };

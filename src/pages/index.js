@@ -31,6 +31,10 @@ const ChangeColorText = styled.p`
 	color: crimson;
 	text-align: center;
 	text-decoration: none;
+	&:hover {
+    background-color: crimson;
+    color: white;
+  }
 `;
 
 const IndexPage = () => {
@@ -44,19 +48,19 @@ const IndexPage = () => {
 
 	return (
 		<Layout>
-			<SEO title="hello" />
+			<SEO title="hi" />
 			<main
 				style={{
 				display: 'flex',
 				flexDirection: 'column'
 				}}
 			>
-				<InverseButton as="a" href="/" target="_blank" randomColor={color}>Projects</InverseButton>
+				<InverseButton as="a" href="/projects" randomColor={color}>Projects</InverseButton>
 				<Button as="a" href="https://github.com/virenb" target="_blank" randomColor={color}>GitHub</Button>
 				<Button as="a" href="https://twitter.com/virengb" target="_blank" randomColor={color}>Twitter</Button>
 				<Button as="a" href="https://dev.to/virenb" target="_blank" randomColor={color}>Blog</Button>
 				<Button as="a" href="/" target="_blank" randomColor={color}>LinkedIn</Button>				
-				<InverseButton as="a" href="/" target="_blank" randomColor={color}>Contact Me</InverseButton>
+				<InverseButton as="a" href="mailto:virenb@gmail.com?Subject=Hello!" target="_blank" randomColor={color}>Contact Me</InverseButton>
 			</main>
 			<ChangeColorText onClick={changeColor}>(Change the color)</ChangeColorText>			
 		</Layout>
